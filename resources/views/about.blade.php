@@ -313,6 +313,19 @@
 
       <div class="owl-carousel testimonials-carousel">
 
+        @foreach ($articles as $article)
+<div class="testimonial-item">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+           {{ $article-> excerpt}}
+            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+          </p>
+          <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+          <h3>Saul Goodman</h3>
+          <h4>Ceo &amp; Founder</h4>
+        </div>
+        @endforeach
+<!-- 
         <div class="testimonial-item">
           <p>
             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -367,7 +380,7 @@
           <h3>John Larson</h3>
           <h4>Entrepreneur</h4>
         </div>
-
+ -->
       </div>
 
     </div><!-- End Testimonials  -->
