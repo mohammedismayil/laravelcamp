@@ -16,12 +16,18 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 // 	return view('welcome');
 // });
-Route::get('/contact', function () {
-    return view('contact');
+Route::get('/layout', function () {
+    return view('layout');
 });
 Route::get('/', function () {
     return view('welcome',[
-'articles' => App\Models\Article::latest()->get(),
+'articles' => App\Models\Articles::latest()->get(),
+'skills' => App\Models\Skills::latest()->get()
+    ]);
+});
+Route::get('/about', function () {
+    return view('about',[
+'articles' => App\Models\Articles::latest()->get(),
 'skills' => App\Models\Skills::latest()->get()
     ]);
 });
@@ -39,4 +45,10 @@ Route::get('/', function () {
 //               );
 //       });
 
-Route::get('/posts/{post}','\App\Http\Controllers\PostsController@show');	
+Route::get('/articles/{article}','\App\Http\Controllers\ArticlesController@show');	
+// Route::get('/articles/{article}', function () {
+//     return view('about',[
+// 'articles' => App\Models\Articles::latest()->get(),
+// 'skills' => App\Models\Skills::latest()->get()
+//     ]);
+// });
