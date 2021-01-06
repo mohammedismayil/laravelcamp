@@ -13,15 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //returning name from the request to view 
-Route::get('/', function () {
-	return view('welcome');
-});
+// Route::get('/', function () {
+// 	return view('welcome');
+// });
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/about', function () {
-    return view('about',[
-'articles' => App\Models\Article::latest()->get()
+Route::get('/', function () {
+    return view('welcome',[
+'articles' => App\Models\Article::latest()->get(),
+'skills' => App\Models\Skills::latest()->get()
     ]);
 });
 // returning the post from the array if given post from the request is equal
