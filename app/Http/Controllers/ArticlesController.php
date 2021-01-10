@@ -6,14 +6,34 @@ use Illuminate\Http\Request;
 use App\Models\Articles;
 class ArticlesController extends Controller
 {
-    //
+ 
+ public function index(){
+ 	$articles = Articles::latest()->get();
+ 	return view('Articles.index',['articles'=> $articles]);
+ }
     public function show($idd){
-// dd($id);
+
     
 $articles = Articles::find($idd);
 return view('Articles.show',[
-'articles' => $articles
-
+'articles' => [$articles]
 ]);
+    }
+
+
+    public function create(){
+    	return view('Articles.create');
+    }
+
+    public function store(){
+// dump(request()->all());
+    	$article = new Articles();
+    	$article->title = request('title');
+    	$article->excerpt = request('excerpt');
+    	$article->body = request('body');
+    	$article->save();
+
+
+    	return redirect('/articles');
     }
 }

@@ -46,9 +46,12 @@ Route::get('/about', function () {
 //       });
 
 Route::get('/articles/{article}','\App\Http\Controllers\ArticlesController@show');	
+Route::get('/articles/','\App\Http\Controllers\ArticlesController@index');
+Route::post('/articles','\App\Http\Controllers\ArticlesController@store');	
 // Route::get('/articles/{article}', function () {
 //     return view('about',[
 // 'articles' => App\Models\Articles::latest()->get(),
 // 'skills' => App\Models\Skills::latest()->get()
 //     ]);
 // });
+Route::get('/create', '\App\Http\Controllers\ArticlesController@create');
