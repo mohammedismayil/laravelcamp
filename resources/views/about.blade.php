@@ -1,5 +1,6 @@
 @extends ('layout')
-@section ('header')
+<!-- @yield('header') -->
+<!-- @section ('header')
 <div id="header-wrapper">
   <div id="header" class="container">
     <div id="logo">
@@ -25,7 +26,7 @@
   </div>
 </div>
 
-@endsection
+@endsection -->
 @section ('content')
 
 <div id="wrapper">

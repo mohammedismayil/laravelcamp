@@ -10,6 +10,7 @@ class ArticlesController extends Controller
  public function index(){
  	$articles = Articles::latest()->get();
  	return view('Articles.index',['articles'=> $articles]);
+ 	// return response()->json($articles, 201);
  }
     public function show($idd){
 
@@ -36,4 +37,14 @@ return view('Articles.show',[
 
     	return redirect('/articles');
     }
+
+    //For API's
+
+
+    public function returnArticles(){
+ 	$articles = Articles::latest()->get();
+ 	$skills = Skills::latest()->get();
+ 	// return view('Articles.index',['articles'=> $articles]);
+ 	return response()->json($skills, 201);
+ }
 }
