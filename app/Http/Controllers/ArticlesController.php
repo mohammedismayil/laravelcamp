@@ -12,6 +12,8 @@ class ArticlesController extends Controller
  	return view('Articles.index',['articles'=> $articles]);
  	// return response()->json($articles, 201);
  }
+
+
     public function show($idd){
 
     
@@ -23,11 +25,22 @@ return view('Articles.show',[
 
 
     public function create(){
+
+
+
+
     	return view('Articles.create');
     }
 
     public function store(){
 // dump(request()->all());
+
+request()->validate([
+'title' => 'required',
+'excerpt' => 'required',
+'body'=> 'required'
+]);
+
     	$article = new Articles();
     	$article->title = request('title');
     	$article->excerpt = request('excerpt');
@@ -36,6 +49,14 @@ return view('Articles.show',[
 
 
     	return redirect('/articles');
+    }
+ public function edit($idd){
+
+    
+$articles = Articles::find($idd);
+return view('Articles.edit',[
+'articles' => [$articles]
+]);
     }
 
     //For API's
