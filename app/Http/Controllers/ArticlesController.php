@@ -64,8 +64,8 @@ return view('Articles.edit',[
 
     public function returnArticles(){
  	$articles = Articles::latest()->get();
- 	$skills = Skills::latest()->get();
+ 	// $skills = Skills::latest()->get();
  	// return view('Articles.index',['articles'=> $articles]);
- 	return response()->json($skills, 201);
+ 	return response()->json($articles, 201);
  }
 }

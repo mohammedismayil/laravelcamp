@@ -48,6 +48,8 @@ Route::get('/about', function () {
 Route::get('/articles/{article}','\App\Http\Controllers\ArticlesController@show');	
 Route::get('/articles/{article}/edit','\App\Http\Controllers\ArticlesController@edit');
 Route::get('/articles/','\App\Http\Controllers\ArticlesController@index');
+
+
 Route::post('/articles','\App\Http\Controllers\ArticlesController@store');	
 // Route::get('/articles/{article}', function () {
 //     return view('about',[
@@ -56,3 +58,5 @@ Route::post('/articles','\App\Http\Controllers\ArticlesController@store');
 //     ]);
 // });
 Route::get('/create', '\App\Http\Controllers\ArticlesController@create');
+// Routes for API's
+Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');
