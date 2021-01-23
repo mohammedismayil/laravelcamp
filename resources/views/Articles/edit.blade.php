@@ -4,7 +4,10 @@
 <div id="wrapper">
   <div id="page" class="container">
     <h1>New Article</h1>
-    <form method="POST" action="/articles">
+      @foreach ($articles as $article)
+
+    <form method="POST" action="/articles/{{ $article->id }}/update">
+@endforeach
       @csrf
        @foreach ($articles as $article)
       <div class="field">

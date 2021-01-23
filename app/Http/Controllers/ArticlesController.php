@@ -32,7 +32,7 @@ return view('Articles.show',[
     	return view('Articles.create');
     }
 
-    public function store(){
+    public function createArticle(){
 // dump(request()->all());
 
 request()->validate([
@@ -50,6 +50,17 @@ request()->validate([
 
     	return redirect('/articles');
     }
+     public function update($id){
+$article = Articles::find($id);
+    $article->title = request('title');
+    	$article->excerpt = request('excerpt');
+    	$article->body = request('body');
+    	$article->save();
+// dd($article);
+
+return redirect('/articles');
+
+}
  public function edit($idd){
 
     

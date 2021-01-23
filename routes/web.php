@@ -50,7 +50,7 @@ Route::get('/articles/{article}/edit','\App\Http\Controllers\ArticlesController@
 Route::get('/articles/','\App\Http\Controllers\ArticlesController@index');
 
 
-Route::post('/articles','\App\Http\Controllers\ArticlesController@store');	
+Route::post('/articles/{article}/update','\App\Http\Controllers\ArticlesController@update');	
 // Route::get('/articles/{article}', function () {
 //     return view('about',[
 // 'articles' => App\Models\Articles::latest()->get(),
@@ -58,5 +58,6 @@ Route::post('/articles','\App\Http\Controllers\ArticlesController@store');
 //     ]);
 // });
 Route::get('/create', '\App\Http\Controllers\ArticlesController@create');
+Route::post('/articles/createArticle', '\App\Http\Controllers\ArticlesController@createArticle');
 // Routes for API's
 Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');

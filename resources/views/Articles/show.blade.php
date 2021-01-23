@@ -9,7 +9,14 @@
       <p><img src="images/banner.jpg" alt="" class="image image-full" /> </p>
           <p><a href="#">{{$article->excerpt}}</a></p>
         </li>
+
+        <div>
+      <h3>
+<a href="/articles/{{$article->id}}/edit">edit</a>
+          </h3>
+    </div>
         @endforeach
         
       
     </div>
+    
