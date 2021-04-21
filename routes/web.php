@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 // 	return view('welcome');
 // });
+
+Route::get('/signup', function () {
+    return view('signup');
+});
 Route::get('/layout', function () {
     return view('layout');
 });
@@ -60,5 +64,10 @@ Route::post('/articles/{article}/update','\App\Http\Controllers\ArticlesControll
 // });
 Route::get('/create', '\App\Http\Controllers\ArticlesController@create');
 Route::post('/articles/createArticle', '\App\Http\Controllers\ArticlesController@createArticle');
+
+// new user signup using post method
+
+Route::post('/signupuser', '\App\Http\Controllers\usersignupController@register');
+
 // Routes for API's
 Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');
