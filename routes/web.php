@@ -69,5 +69,10 @@ Route::post('/articles/createArticle', '\App\Http\Controllers\ArticlesController
 
 Route::post('/signupuser', '\App\Http\Controllers\usersignupController@register');
 
+
+Route::get('/users', '\App\Http\Controllers\usersignupController@userlists');
+Route::get('/getcsrf', '\App\Http\Controllers\usersignupController@returncsrf');
+// Route::get('/users', '\App\Http\Controllers\ArticlesController@create');
+
 // Routes for API's
 Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');
