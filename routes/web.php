@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ImageUploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,6 +73,10 @@ Route::post('/signupuser', '\App\Http\Controllers\usersignupController@register'
 Route::get('/users', '\App\Http\Controllers\usersignupController@userlists');
 Route::get('/getcsrf', '\App\Http\Controllers\usersignupController@returncsrf');
 // Route::get('/users', '\App\Http\Controllers\ArticlesController@create');
+//Image upload routes
+
+Route::get('image-upload',  '\App\Http\Controllers\ImageUploadController@imageUpload');
+Route::post('image-upload',  '\App\Http\Controllers\ImageUploadController@imageUploadPost');
 
 // Routes for API's
 Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');
