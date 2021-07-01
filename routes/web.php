@@ -16,6 +16,12 @@ use App\Http\Controllers\ImageUploadController;
 // Route::get('/', function () {
 // 	return view('welcome');
 // });
+// statically adding admin route
+
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 
 Route::get('/signup', function () {
     return view('signup');
