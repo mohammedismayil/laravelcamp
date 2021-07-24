@@ -21,7 +21,13 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/admin', function () {
     return view('admin');
 });
-
+// Route::get('/admin/posts', function () {
+//     return view('admin.posts',[
+//         'articles' => App\Models\Articles::latest()->get(),
+//         'posts' => App\Models\Posts::latest()->get()
+//             ]);
+// });
+Route::get('/admin/posts','\App\Http\Controllers\ArticlesController@index');
 
 Route::get('/signup', function () {
     return view('signup');
@@ -86,3 +92,11 @@ Route::post('image-upload',  '\App\Http\Controllers\ImageUploadController@imageU
 
 // Routes for API's
 Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

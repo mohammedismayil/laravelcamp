@@ -9,7 +9,7 @@ class ArticlesController extends Controller
  
  public function index(){
  	$articles = Articles::latest()->get();
- 	return view('Articles.index',['articles'=> $articles]);
+ 	return view('admin.posts',['articles'=> $articles]);
  	// return response()->json($articles, 201);
  }
 
