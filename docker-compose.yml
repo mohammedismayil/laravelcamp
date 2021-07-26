@@ -1,6 +1,17 @@
 version: '3'
 services:
-
+  node_port:
+        build:
+          context: ./
+          target: dev
+        volumes:
+          - .:/src
+        command: npm run dev
+        ports:
+          - "3000:3000"
+        environment:
+          NODE_ENV: development
+          DEBUG: nodejs-docker-express:*
   #PHP Service
   app:
     build:
