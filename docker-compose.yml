@@ -7,7 +7,6 @@ services:
         tty: true
         build:
           context: ./
-          target: nodebackend
         volumes:
           - .:/src/
         command: npm run dev
