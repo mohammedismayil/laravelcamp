@@ -34,6 +34,5 @@ jobs:
       run: |
          ssh staging 'docker stop $(docker ps -a -q)'
          ssh staging 'docker rm $(docker ps -a -q)'
-         ssh staging 'cd laravelcamp'
-         ssh staging 'git pull'
+         ssh staging 'cd laravelcamp && git pull'
          ssh staging 'docker-compose up -d'
