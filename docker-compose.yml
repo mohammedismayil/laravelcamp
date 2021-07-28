@@ -3,7 +3,7 @@ services:
   node_port:
         build:
           context: ./
-          target: dev
+          target: nodebackend
         volumes:
           - .:/src
         command: npm run dev
