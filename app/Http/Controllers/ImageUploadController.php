@@ -6,38 +6,25 @@ use Illuminate\Http\Request;
 
 class ImageUploadController extends Controller
 {
-    //
-
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function imageUpload()
+    public function index()
     {
-        return view('imageUpload');
+      return view('imageUpload');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function imageUploadPost(Request $request)
+    public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //   dd($request);
+      $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
-
+    
         $imageName = time().'.'.$request->image->extension();
-
+     
         $request->image->move(public_path('images'), $imageName);
-
-        /* Store $imageName name in DATABASE from HERE */
-
-        return back()
-            ->with('success','You have successfully upload image.')
-            ->with('image',$imageName);
+  
+        // / store image in database from here /
+    
+        return redirect()->back()->with('success','Image uploaded successfully.')->with('image',$imageName);
     }
 
 }

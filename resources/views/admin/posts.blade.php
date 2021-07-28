@@ -20,6 +20,12 @@
 <!-- home.blade.php --> --}}
 
 {{-- @extends('master') --}}
+   <!-- MDBootstrap Datatables  -->
+   <link href="css/addons/datatables2.min.css" rel="stylesheet">
+
+   <!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="js/addons/datatables2.min.js"></script>
+
 @extends('adminlte::page')
 @section('content')
     <div class="content-wrapper">
@@ -65,9 +71,29 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.bootstrap.min.js') }}"></script>
-    <script>
+    {{-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.bootstrap.min.js') }}"></script> --}}
+    <script type="text/javascript">
+   
+$(document).ready(function() {
+  
+  /* To hide column 2 and 3 */
+  $('#tableID').DataTable( {
+      "columnDefs": [
+          {
+              "targets": [ 2 ],
+              "visible": false,
+              "searchable": false
+          },
+          {
+              "targets": [ 3 ],
+              "visible": false
+          }
+      ]
+  } );
+} );
+      </script>
+    {{-- <script>
          jQuery(function($) {
         //initiate dataTables plugin
         var myTable = 
@@ -89,7 +115,7 @@
     
             //,
             //"sScrollY": "200px",
-            //"bPaginate": false,
+            "bPaginate": true,
     
             //"sScrollX": "100%",
             //"sScrollXInner": "120%",
@@ -97,7 +123,7 @@
             //Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
             //you may want to wrap the table inside a "div.dataTables_borderWrap" element
     
-            //"iDisplayLength": 50
+            "iDisplayLength": 10
     
     
                 select: {
@@ -105,5 +131,5 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 @endsection

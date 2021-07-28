@@ -21,17 +21,13 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/admin', function () {
     return view('admin');
 });
-// Route::get('/admin/posts', function () {
-//     return view('admin.posts',[
-//         'articles' => App\Models\Articles::latest()->get(),
-//         'posts' => App\Models\Posts::latest()->get()
-//             ]);
-// });
 Route::get('/admin/posts','\App\Http\Controllers\ArticlesController@index');
 
 Route::get('/signup', function () {
-    return view('signup');
+    return view('user_lists.create');
 });
+Route::get('/image-upload','\App\Http\Controllers\ImageUploadController@index');
+Route::post('/image-upload/store','\App\Http\Controllers\ImageUploadController@store');
 Route::get('/layout', function () {
     return view('layout');
 });
@@ -81,14 +77,12 @@ Route::post('/articles/createArticle', '\App\Http\Controllers\ArticlesController
 
 Route::post('/signupuser', '\App\Http\Controllers\usersignupController@register');
 
-
 Route::get('/users', '\App\Http\Controllers\usersignupController@userlists');
 Route::get('/getcsrf', '\App\Http\Controllers\usersignupController@returncsrf');
 // Route::get('/users', '\App\Http\Controllers\ArticlesController@create');
 //Image upload routes
 
-Route::get('image-upload',  '\App\Http\Controllers\ImageUploadController@imageUpload');
-Route::post('image-upload',  '\App\Http\Controllers\ImageUploadController@imageUploadPost');
+
 
 // Routes for API's
 Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');

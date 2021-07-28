@@ -8,12 +8,31 @@ class usersignupController extends Controller
 {
     //
 
-
+    public function store(Request $request)
+    {
+      $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        ]);
+    
+        $imageName = time().'.'.$request->image->extension();
+     
+        $request->image->move(public_path('images'), $imageName);
+  
+        // / store image in database from here /
+    
+        return redirect()->back()->with('success','Image uploaded successfully.')->with('image',$imageName);
+    }
     public function register(Request $request){
         // dd($request->all());  //to check all the datas dumped from the form
         //if your want to get single element,someName in this case
         // echo("register tapped");
-
+        $validatedData = $request->validate([
+            'password' => 'required|min:5',
+            'email' => 'required|email|unique:users'
+        ], [
+            'name.required' => 'Name is required',
+            'password.required' => 'Password is required'
+        ]);
         $user = new user_lists();
         $user->email = request('email');
         $user->password = request('password') ;
@@ -21,7 +40,7 @@ class usersignupController extends Controller
         $user->save();
         return redirect('/users');
     }
-    public function userlists(){
+     function userlists(){
         // echo("hello");
         $users = user_lists::latest()->get();
         return view('user_lists.userlist',['users'=>$users]);

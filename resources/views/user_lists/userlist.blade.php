@@ -1,3 +1,4 @@
+
 {{-- @extends('layout') --}}
 {{-- @section('content') --}}
 <div>
@@ -9,7 +10,7 @@
     @foreach ($users as $user)
     <div>
         <li>{{$user->email}}</li>
-        <li>{{$user->password}}</li>
+        {{-- <li>{{$user->password}}</li> --}}
     </div>
 
     @endforeach
