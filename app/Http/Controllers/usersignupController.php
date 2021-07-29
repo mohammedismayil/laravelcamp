@@ -34,6 +34,10 @@ class usersignupController extends Controller
             'password.required' => 'Password is required'
         ]);
         $user = new user_lists();
+        $user->firstname = request('firstname');
+        $user->lastname = request('lastname');
+        $user->gender = request('gender');
+        $user->dob = request('dob');
         $user->email = request('email');
         $user->password = request('password') ;
         $user->check_me = request('check_me') == "on" ? true :  false;

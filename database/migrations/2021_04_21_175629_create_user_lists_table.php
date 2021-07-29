@@ -16,6 +16,10 @@ class CreateUserListsTable extends Migration
         Schema::create('user_lists', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('gender');
+            $table->string('dob');
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('check_me');

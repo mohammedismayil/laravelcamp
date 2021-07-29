@@ -2,6 +2,14 @@
 {{-- @section ('header') --}}
 <form method="POST" action="/signupuser" >
     @csrf
+    <div class="form-group">
+      <label for="exampleInputEmail1">First Name</label>
+      <input type="email" class="form-control" id="firstname" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Last Name</label>
+      <input type="email" class="form-control" id="lastname" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+    </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" placeholder="Enter email">

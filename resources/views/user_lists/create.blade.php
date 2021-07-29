@@ -1,48 +1,44 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-3 mt-5">
-            <div class="card mt-5">
-                <div class="card-header text-center bg-primary">
-                    <h2 class="text-white"> <strong>Multiple File Upload</strong></h2>
-                </div>
-                <div class="card-body">
-                  @if ($message = Session::get('success'))
-		            <div class="alert alert-success alert-block">
-		                <button type="button" class="close" data-dismiss="alert">×</button>
-		                <strong>{{ $message }}</strong>
-		            </div>
-		          @endif
-		            @if (count($errors) > 0)
-		                <ul class="alert alert-danger pl-5">
-		                  @foreach($errors->all() as $error)
-		                     <li>{{ $error }}</li> 
-		                  @endforeach
-		                </ul>
-		            @endif
-		            <form method="post" action="{{ route('multiple.file.upload.store') }}" enctype="multipart/form-data">
-		              @csrf
-		              <div class="input-group file-div control-group lst increment" >
-		                <input type="file" name="files[]" class="myfrm form-control">
-		                <div class="input-group-btn"> 
-		                  <button class="btn btn-success add-btn" type="button"><i class="fldemo fa fa-plus"></i></button>
-		                </div>
-		              </div>
-		              <div class="clone hide">
-		                <div class="file-div control-group lst input-group" style="margin-top:10px">
-		                  <input type="file" name="files[]" class="myfrm form-control">
-		                  <div class="input-group-btn"> 
-		                    <button class="btn btn-danger" type="button"><i class="fldemo fa fa-close"></i></button>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="row">
-		                <div class="col-md-12 text-center mt-4">
-		                  <button type="submit" class="btn btn-success rounded-0"><i class="fa fa-save"></i> Save</button>
-		                </div>
-		              </div>
-		          </form>
-                </div>
-            </div>
-        </div>
+{{-- @extends ('layout') --}}
+{{-- @section ('header') --}}
+<form method="POST" action="/signupuser" >
+    @csrf
+    <div class="form-group">
+      <label for="exampleInputEmail1">First Name</label>
+      <input type="name" class="form-control" id="firstname" aria-describedby="emailHelp" name="firstname" placeholder="Enter name">
     </div>
-</div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Last Name</label>
+      <input type="name" class="form-control" id="lastname" aria-describedby="emailHelp" name="lastname" placeholder="Enter name">
+    </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+    @if ($errors->has('email'))
+    <span class="text-danger">{{ $errors->first('email') }}</span>
+    @endif
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+	<label for="exampleInputEmail1">Gender</label>
+	<input type="radio" id="male" name="gender" value="male">
+	<label for="exampleInputEmail1">Male</label>
+	<input type="radio" id="male" name="gender" value="male">
+	<label for="exampleInputEmail1">Female</label>
+  </div>
+  <div class="form-group">
+	<label for="birthday">DOB:</label>
+<input type="date" id="dob" name="dob">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+    @if ($errors->has('password'))
+       <span class="text-danger">{{ $errors->first('password') }}</span>
+    @endif
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" name="check_me" id="checkbox">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

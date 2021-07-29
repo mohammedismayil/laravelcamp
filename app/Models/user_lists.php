@@ -10,7 +10,11 @@ class user_lists extends Model
     use HasFactory;
 
     protected $fillable = [
+        'firsname',
+        'lastname',
         'email',
+        'gender',
+        'dob',
         'password',
         'check_me',
     ];
