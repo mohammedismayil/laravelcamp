@@ -32,6 +32,6 @@ jobs:
           END
     - name: Starting the Docker compose
       run: |
-         ssh staging 'docker stop $(docker ps -a -q)'
-         ssh staging 'docker rm $(docker ps -a -q)'
+        #  ssh staging 'docker stop $(docker ps -a -q)'
+        #  ssh staging 'docker rm $(docker ps -a -q)'
          ssh staging 'cd laravelcamp && git pull && docker-compose up -d'
