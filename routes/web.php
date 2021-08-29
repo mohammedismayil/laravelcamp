@@ -21,26 +21,26 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/admin', function () {
     return view('admin');
 });
-Route::get('/admin/posts','\App\Http\Controllers\ArticlesController@index');
+Route::get('/admin/posts', '\App\Http\Controllers\ArticlesController@index');
 
 Route::get('/signup', function () {
     return view('user_lists.create');
 });
-Route::get('/image-upload','\App\Http\Controllers\ImageUploadController@index');
-Route::post('/image-upload/store','\App\Http\Controllers\ImageUploadController@store');
+Route::get('/image-upload', '\App\Http\Controllers\ImageUploadController@index');
+Route::post('/image-upload/store', '\App\Http\Controllers\ImageUploadController@store');
 Route::get('/layout', function () {
     return view('layout');
 });
 Route::get('/', function () {
-    return view('welcome',[
-'articles' => App\Models\Articles::latest()->get(),
-'skills' => App\Models\Skills::latest()->get()
+    return view('welcome', [
+        'articles' => App\Models\Articles::latest()->get(),
+        'skills' => App\Models\Skills::latest()->get()
     ]);
 });
 Route::get('/about', function () {
-    return view('about',[
-'articles' => App\Models\Articles::latest()->get(),
-'skills' => App\Models\Skills::latest()->get()
+    return view('about', [
+        'articles' => App\Models\Articles::latest()->get(),
+        'skills' => App\Models\Skills::latest()->get()
     ]);
 });
 // hello from the laravel camp
@@ -57,13 +57,14 @@ Route::get('/about', function () {
 //               ]
 //               );
 //       });
+//
 
-Route::get('/articles/{article}','\App\Http\Controllers\ArticlesController@show');
-Route::get('/articles/{article}/edit','\App\Http\Controllers\ArticlesController@edit');
-Route::get('/articles/','\App\Http\Controllers\ArticlesController@index');
+Route::get('/articles/{article}', '\App\Http\Controllers\ArticlesController@show');
+Route::get('/articles/{article}/edit', '\App\Http\Controllers\ArticlesController@edit');
+Route::get('/articles/', '\App\Http\Controllers\ArticlesController@index');
 
 
-Route::post('/articles/{article}/update','\App\Http\Controllers\ArticlesController@update');
+Route::post('/articles/{article}/update', '\App\Http\Controllers\ArticlesController@update');
 // Route::get('/articles/{article}', function () {
 //     return view('about',[
 // 'articles' => App\Models\Articles::latest()->get(),
@@ -85,7 +86,7 @@ Route::get('/getcsrf', '\App\Http\Controllers\usersignupController@returncsrf');
 
 
 // Routes for API's
-Route::get('api/articles/','\App\Http\Controllers\ArticlesController@returnArticles');
+Route::get('api/articles/', '\App\Http\Controllers\ArticlesController@returnArticles');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
