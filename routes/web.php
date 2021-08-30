@@ -86,6 +86,15 @@ Route::get('/users', function () {
     ]);
 });
 Route::get('/getcsrf', '\App\Http\Controllers\usersignupController@returncsrf');
+
+
+
+Route::get('/ui', function () {
+    return view('w3schools.responsive1', [
+
+        'skills' => App\Models\Skills::latest()->get()
+    ]);
+});
 // Route::get('/users', '\App\Http\Controllers\ArticlesController@create');
 //Image upload routes
 
