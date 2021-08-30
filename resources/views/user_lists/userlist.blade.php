@@ -1,4 +1,4 @@
-{{-- @extends('layout') --}}
+@extends('layout')
 {{-- @section('content') --}}
 <div>
     will show user list from database here ok
