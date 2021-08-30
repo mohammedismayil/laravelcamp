@@ -78,7 +78,13 @@ Route::post('/articles/createArticle', '\App\Http\Controllers\ArticlesController
 
 Route::post('/signupuser', '\App\Http\Controllers\usersignupController@register');
 
-Route::get('/users', '\App\Http\Controllers\usersignupController@userlists');
+// Route::get('/users', '\App\Http\Controllers\usersignupController@userlists');
+Route::get('/users', function () {
+    return view('user_lists.userlist', [
+        'users' => App\Models\User::latest()->get(),
+        'skills' => App\Models\Skills::latest()->get()
+    ]);
+});
 Route::get('/getcsrf', '\App\Http\Controllers\usersignupController@returncsrf');
 // Route::get('/users', '\App\Http\Controllers\ArticlesController@create');
 //Image upload routes

@@ -1,17 +1,18 @@
-
 {{-- @extends('layout') --}}
 {{-- @section('content') --}}
 <div>
-    will show user list from database here
+    will show user list from database here ok
 </div>
 
-<div>
+<div class="flex flex-wrap">
+
+
 
     @foreach ($users as $user)
-    <div>
-        <li>{{$user->email}}</li>
-        {{-- <li>{{$user->password}}</li> --}}
-    </div>
+        <div class="w-1/2 bg-red-500 h-32">
+            {{ $user->email }}
+            {{-- <li>{{$user->password}}</li> --}}
+        </div>
 
     @endforeach
 </div>
