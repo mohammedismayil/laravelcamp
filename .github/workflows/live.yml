@@ -1,3 +1,4 @@
+//checking live deployment database migrating
 name: Deploy in development
 
 on:
