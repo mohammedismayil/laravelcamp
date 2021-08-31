@@ -1,4 +1,4 @@
-//checking live deployment database migrating
+# //checking live deployment database migrating
 name: Deploy in development
 
 on:
