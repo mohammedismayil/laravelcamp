@@ -21,7 +21,7 @@ use App\Http\Controllers\ImageUploadController;
 Route::get('/admin', function () {
     return view('admin');
 });
-Route::get('/admin/posts', '\App\Http\Controllers\ArticlesController@index');
+Route::get('/admin/articles', '\App\Http\Controllers\ArticlesController@index');
 
 Route::get('/signup', function () {
     return view('user_lists.create');

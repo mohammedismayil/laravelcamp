@@ -32,6 +32,8 @@ class UserController extends Controller
         $user->password = request('password');
         $user->phone_number = request('phone_number');
         $user->country_code = request('country_code');
+
+        dd($request->all());
         $user->save();
         return redirect('/newuser');
     }

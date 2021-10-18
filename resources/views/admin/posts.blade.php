@@ -33,8 +33,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
+                            <th>Title</th>
+                            <th>Body</th>
                         </tr>
                     </thead>
 
@@ -62,9 +62,9 @@
     {{-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.bootstrap.min.js') }}"></script> --}}
     <script type="text/javascript">
-   
+
 $(document).ready(function() {
-  
+
   /* To hide column 2 and 3 */
   $('#tableID').DataTable( {
       "columnDefs": [
@@ -84,7 +84,7 @@ $(document).ready(function() {
     {{-- <script>
          jQuery(function($) {
         //initiate dataTables plugin
-        var myTable = 
+        var myTable =
         $('#pageTable')
         //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
         .DataTable( {
@@ -95,25 +95,25 @@ $(document).ready(function() {
                 null
             ],
             "aaSorting": [],
-            
-            
+
+
             //"bProcessing": true,
             //"bServerSide": true,
             //"sAjaxSource": "http://127.0.0.1/table.php"   ,
-    
+
             //,
             //"sScrollY": "200px",
             "bPaginate": true,
-    
+
             //"sScrollX": "100%",
             //"sScrollXInner": "120%",
             //"bScrollCollapse": true,
             //Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
             //you may want to wrap the table inside a "div.dataTables_borderWrap" element
-    
+
             "iDisplayLength": 10
-    
-    
+
+
                 select: {
                     style: 'multi'
                 }
