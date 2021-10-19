@@ -23,6 +23,12 @@ Route::get('/admin', function () {
 });
 Route::get('/admin/articles', '\App\Http\Controllers\ArticlesController@index');
 
+Route::get('/admin/users', function () {
+    return view('admin.users', [
+        'users' => App\Models\Users::latest()->get()
+    ]);
+});
+
 Route::get('/signup', function () {
     return view('user_lists.create');
 });
@@ -81,7 +87,7 @@ Route::post('/signupuser', '\App\Http\Controllers\usersignupController@register'
 // Route::get('/users', '\App\Http\Controllers\usersignupController@userlists');
 Route::get('/users', function () {
     return view('user_lists.userlist', [
-        'users' => App\Models\User::latest()->get(),
+        'users' => App\Models\Users::latest()->get(),
         'skills' => App\Models\Skills::latest()->get()
     ]);
 });
