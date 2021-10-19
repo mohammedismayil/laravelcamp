@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\User;
+use App\Models\Users;
 
 class UserController extends Controller
 {
@@ -25,7 +25,7 @@ class UserController extends Controller
             'name.required' => 'Name is required',
             'password.required' => 'Password is required'
         ]);
-        $user = new User();
+        $user = new Users();
         $user->firstname = request('firstname');
         $user->lastname = request('lastname');
         $user->email = request('email');
@@ -33,7 +33,7 @@ class UserController extends Controller
         $user->phone_number = request('phone_number');
         $user->country_code = request('country_code');
 
-        dd($request->all());
+        // dd($request->all());
         $user->save();
         return redirect('/newuser');
     }
@@ -45,7 +45,8 @@ class UserController extends Controller
     public function userlistsAPI()
     {
         // echo("hello");
-        $users = User::latest()->get();
+        $users = Users::latest()->get();
+        dd($users);
         return response()->json($users, 201);
     }
 }
