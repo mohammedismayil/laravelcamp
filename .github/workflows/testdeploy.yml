@@ -33,9 +33,12 @@ jobs:
     - name: Starting the Docker compose
       run: |
 
-         ssh staging 'docker rm -vf $(docker ps -aq) && docker rmi -f $(docker images -aq) && docker volume prune -f'
+
          ssh staging 'cd laravelcamp && git pull && docker-compose up -d'
 #clearing docker overlay and all images for cleaning the storage
         #  ssh staging 'docker stop $(docker ps -a -q)'
         #  ssh staging 'docker rm $(docker ps -a -q)'
 ####
+
+#Need to implement this clearance when storage is low or every time when push is triggered and must implement the case of no containers and images present
+#  ssh staging 'docker rm -vf $(docker ps -aq) && docker rmi -f $(docker images -aq) && docker volume prune -f'
