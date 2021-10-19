@@ -32,7 +32,10 @@ jobs:
           END
     - name: Starting the Docker compose
       run: |
+
+         ssh staging 'docker rm -vf $(docker ps -aq) && docker rmi -f $(docker images -aq) && docker volume prune -f'
          ssh staging 'cd laravelcamp && git pull && docker-compose up -d'
+#clearing docker overlay and all images for cleaning the storage
         #  ssh staging 'docker stop $(docker ps -a -q)'
         #  ssh staging 'docker rm $(docker ps -a -q)'
 ####
