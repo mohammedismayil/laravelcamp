@@ -29,6 +29,12 @@ Route::get('/admin/users', function () {
     ]);
 });
 
+Route::get('/admin/seeders', function () {
+    return view('admin.seeders', [
+        'users' => App\Models\Users::latest()->get()
+    ]);
+});
+Route::post('/seeders/createSeeder', '\App\Http\Controllers\admin\SeedersController@createSeeder');
 Route::get('/signup', function () {
     return view('user_lists.create');
 });

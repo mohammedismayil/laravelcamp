@@ -270,6 +270,11 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Seeders',
+            'url'  => 'admin/seeders',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',

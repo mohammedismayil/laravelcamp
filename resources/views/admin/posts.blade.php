@@ -10,11 +10,23 @@
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
    <!-- MDBootstrap Datatables  -->
    <link href="css/addons/datatables2.min.css" rel="stylesheet">
+   <script>
+    $(document).ready(function() {
+      $('#tabledata').DataTable(
+{
+    "scrollY": "400px",
+"scrollCollapse": true,
+}
 
+      );
+    });
+  </script>
    <!-- MDBootstrap Datatables  -->
 <script type="text/javascript" src="js/addons/datatables2.min.js"></script>
 
 @extends('adminlte::page')
+
+
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
@@ -28,8 +40,8 @@
             </ol>
         </section>
         <section class="content">
-            <div class="row">
-                <table id="pageTable" class="table table-bordered table-hover">
+            <div class="">
+                <table id="tabledata"  class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -57,67 +69,4 @@
             </div>
         </section>
     </div>
-@endsection
-@section('scripts')
-    {{-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.bootstrap.min.js') }}"></script> --}}
-    <script type="text/javascript">
-
-$(document).ready(function() {
-
-  /* To hide column 2 and 3 */
-  $('#tableID').DataTable( {
-      "columnDefs": [
-          {
-              "targets": [ 2 ],
-              "visible": false,
-              "searchable": false
-          },
-          {
-              "targets": [ 3 ],
-              "visible": false
-          }
-      ]
-  } );
-} );
-      </script>
-    {{-- <script>
-         jQuery(function($) {
-        //initiate dataTables plugin
-        var myTable =
-        $('#pageTable')
-        //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
-        .DataTable( {
-            bAutoWidth: false,
-            "aoColumns": [
-                null,
-                null,
-                null
-            ],
-            "aaSorting": [],
-
-
-            //"bProcessing": true,
-            //"bServerSide": true,
-            //"sAjaxSource": "http://127.0.0.1/table.php"   ,
-
-            //,
-            //"sScrollY": "200px",
-            "bPaginate": true,
-
-            //"sScrollX": "100%",
-            //"sScrollXInner": "120%",
-            //"bScrollCollapse": true,
-            //Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
-            //you may want to wrap the table inside a "div.dataTables_borderWrap" element
-
-            "iDisplayLength": 10
-
-
-                select: {
-                    style: 'multi'
-                }
-            });
-        });
-    </script> --}}
 @endsection

@@ -59,8 +59,8 @@
     </div>
 @endsection
 @section('scripts')
-    {{-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.bootstrap.min.js') }}"></script> --}}
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.bootstrap.min.js') }}"></script>
     <script type="text/javascript">
 
 $(document).ready(function() {
@@ -81,7 +81,7 @@ $(document).ready(function() {
   } );
 } );
       </script>
-    {{-- <script>
+    <script>
          jQuery(function($) {
         //initiate dataTables plugin
         var myTable =
@@ -119,5 +119,5 @@ $(document).ready(function() {
                 }
             });
         });
-    </script> --}}
+    </script>
 @endsection

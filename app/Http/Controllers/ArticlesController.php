@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Articles;
 class ArticlesController extends Controller
 {
- 
+
  public function index(){
  	$articles = Articles::latest()->get();
  	return view('admin.posts',['articles'=> $articles]);
@@ -16,7 +16,7 @@ class ArticlesController extends Controller
 
     public function show($idd){
 
-    
+
 $articles = Articles::find($idd);
 return view('Articles.show',[
 'articles' => [$articles]
@@ -33,7 +33,7 @@ return view('Articles.show',[
     }
 
     public function createArticle(){
-// dump(request()->all());
+        dd(request()->all());
 
 request()->validate([
 'title' => 'required',
@@ -63,7 +63,7 @@ return redirect('/articles');
 }
  public function edit($idd){
 
-    
+
 $articles = Articles::find($idd);
 return view('Articles.edit',[
 'articles' => [$articles]

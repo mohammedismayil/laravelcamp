@@ -16,7 +16,7 @@ class ArticleSeeder extends Seeder
     {
         //
         Articles::factory()
-            ->count(10)
+        ->count(1000)
             ->create();
     }
 }
