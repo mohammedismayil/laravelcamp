@@ -34,6 +34,9 @@ Route::get('/admin/seeders', function () {
         'users' => App\Models\Users::latest()->get()
     ]);
 });
+Route::get('/admin/site_settings', '\App\Http\Controllers\admin\SiteSettingsController@getSiteSettingData');
+Route::post('/admin/editsitesettings', '\App\Http\Controllers\admin\SiteSettingsController@editSiteSettings');
+
 Route::post('/seeders/createSeeder', '\App\Http\Controllers\admin\SeedersController@createSeeder');
 Route::get('/signup', function () {
     return view('user_lists.create');
