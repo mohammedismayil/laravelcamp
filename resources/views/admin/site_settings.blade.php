@@ -9,7 +9,11 @@
             </div>
             <div>
                 <select name="language" id="language">
-                    <option value="english">{{ $site_settings[0]->default_language }}</option>
+                    @foreach ($site_settings as $site_setting)
+                    @if (!($loop->first))
+                    <option value="inr">{{ $site_setting->languages }}</option>
+                    @endif
+                    @endforeach
                 </select>
 
             </div>
@@ -22,7 +26,13 @@
             </div>
             <div class="">
                 <select name="currency" id="currency">
-                    <option value="inr">{{ $site_settings[0]->default_currency }}</option>
+
+                    @foreach ($site_settings as $site_setting)
+                    @if (!($loop->first))
+                    <option value="inr">{{ $site_setting->currency }}</option>
+                    @endif
+                    @endforeach
+
                 </select>
 
             </div>

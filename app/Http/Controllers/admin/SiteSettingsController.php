@@ -26,6 +26,8 @@ class SiteSettingsController extends Controller
             $empty_site_settings->default_currency = "";
             $empty_site_settings->api_key = "";
             $empty_site_settings->app_url = "";
+            $empty_site_settings->languages = "";
+            $empty_site_settings->currency = "";
             $empty_site_settings->save();
             $site_settings = SiteSettings::latest()->get();
             return view(
@@ -33,6 +35,8 @@ class SiteSettingsController extends Controller
                 ['site_settings' => $site_settings]
             );
         } else {
+
+            // dd($site_settings);
             return view(
                 'admin.site_settings',
                 ['site_settings' => $site_settings]

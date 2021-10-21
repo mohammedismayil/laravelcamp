@@ -19,6 +19,8 @@ class CreateSiteSettingsTable extends Migration
             $table->string('default_currency');
             $table->string('api_key');
             $table->string('app_url');
+            $table->string('languages');
+            $table->string('currency');
             $table->timestamps();
         });
     }

@@ -14,5 +14,7 @@ class SiteSettings extends Model
         'default_currency',
         'api_key',
         'app_url',
+        'languages',
+        'currency',
     ];
 }
