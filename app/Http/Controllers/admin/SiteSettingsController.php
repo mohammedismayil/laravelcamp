@@ -17,10 +17,28 @@ class SiteSettingsController extends Controller
     {
 
         $site_settings = SiteSettings::latest()->get();
-        return view(
-            'admin.site_settings',
-            ['site_settings' => $site_settings]
-        );
+
+        if ($site_settings == null) {
+
+            $empty_site_settings = new SiteSettings();
+
+            $empty_site_settings->default_language = "";
+            $empty_site_settings->default_currency = "";
+            $empty_site_settings->api_key = "";
+            $empty_site_settings->app_url = "";
+
+
+            return view(
+                'admin.site_settings',
+                ['site_settings' => $empty_site_settings]
+            );
+        } else {
+            return view(
+                'admin.site_settings',
+                ['site_settings' => $site_settings]
+            );
+        }
+
     }
     public function editSiteSettings()
     {
