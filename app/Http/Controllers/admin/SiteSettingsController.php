@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\SiteSettings;
 use GuzzleHttp\Psr7\Request;
 
+use function PHPUnit\Framework\isEmpty;
+
 // use Illuminate\Http\Request;
 // use App\Models\Articles;
 // use App\Models\Users;
@@ -17,20 +19,18 @@ class SiteSettingsController extends Controller
     {
 
         $site_settings = SiteSettings::latest()->get();
-
-        if ($site_settings == null) {
-
+        if ($site_settings->isEmpty()) {
             $empty_site_settings = new SiteSettings();
-
+            $empty_site_settings->id = 1;
             $empty_site_settings->default_language = "";
             $empty_site_settings->default_currency = "";
             $empty_site_settings->api_key = "";
             $empty_site_settings->app_url = "";
-
-
+            $empty_site_settings->save();
+            $site_settings = SiteSettings::latest()->get();
             return view(
                 'admin.site_settings',
-                ['site_settings' => $empty_site_settings]
+                ['site_settings' => $site_settings]
             );
         } else {
             return view(
