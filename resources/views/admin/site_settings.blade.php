@@ -2,51 +2,47 @@
 @section('content')
     <form method="POST" action="/admin/editsitesettings">
         @csrf
+
+        @foreach ($site_settings as $site_setting)
         <div>
-            <div>
-                <p>Default language</p>
 
-            </div>
-            <div>
-                <select name="language" id="language">
-                    @foreach ($site_settings as $site_setting)
-                    @if (!($loop->first))
-                    <option value="inr">{{ $site_setting->languages }}</option>
-                    @endif
-                    @endforeach
-                </select>
 
-            </div>
+            @if ($site_setting->key == 'default_language')
+            <label> {{$site_setting->title}} </label>
+            {{-- @php(dd($languages ?? '')) --}}
+            <select name="languages" id="languages">
+                @foreach ($languages ?? '' as $language)
+                <option value="english">{{ $language->value }}</option>
+                @endforeach
+
+
+            </select>
+            @elseif ($site_setting->key == 'default_currency')
+
+            <label> {{$site_setting->title}} </label>
+            {{-- @php(dd($languages ?? '')) --}}
+            <select name="currency" id="currency">
+                @foreach ($currencies ?? '' as $currency)
+                <option value="currency">{{ $currency->value }}</option>
+                @endforeach
+
+
+            </select>
+            @else
+
+            <label> {{$site_setting->title}} </label>
+    <input type="text" value="{{ $site_setting->value }}">
+
+    @endif
+
+
+
+
 
         </div>
-        <div>
-            <div>
-                <p>Default Currency</p>
 
-            </div>
-            <div class="">
-                <select name="currency" id="currency">
 
-                    @foreach ($site_settings as $site_setting)
-                    @if (!($loop->first))
-                    <option value="inr">{{ $site_setting->currency }}</option>
-                    @endif
-                    @endforeach
-
-                </select>
-
-            </div>
-
-        </div>
-
-        <p>API Key</p>
-
-        <input type="text" name="apikey" id="apikey" value="{{ $site_settings[0]->api_key }}">
-
-        <p>App URL</p>
-
-        <input type="text" name="appurl" id="appurl" value="{{ $site_settings[0]->app_url }}">
-
+        @endforeach
 
         <button type="submit">Submit</button>
 

@@ -33,7 +33,7 @@ class UserController extends Controller
         $user->phone_number = request('phone_number');
         $user->country_code = request('country_code');
 
-        dd($request->all());
+        // dd($request->all());
         $user->save();
         return redirect('/newuser');
     }
