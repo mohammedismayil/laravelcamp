@@ -36,13 +36,16 @@ class SiteSettingsController extends Controller
     public function editSiteSettings()
     {
 
-        $sitesetting = SiteSettings::find(1);
-        // $sitesetting = new SiteSettings();
-        $sitesetting->default_language = request("language");
-        $sitesetting->default_currency = request("currency");
-        $sitesetting->api_key = request("apikey");
-        $sitesetting->app_url = request("appurl");
-        $sitesetting->save();
-        return redirect('/admin');
+        $sitesetting = SiteSettings::get();
+        // dd(request());
+        $sitesetting[0]->value = request("default_language");
+        $sitesetting[1]->value = request("default_currency");
+        $sitesetting[2]->value = request("google_api_key");
+        $sitesetting[3]->value = request("app_url");
+        $sitesetting[0]->save();
+        $sitesetting[1]->save();
+        $sitesetting[2]->save();
+        $sitesetting[3]->save();
+        return redirect('/admin/site_settings');
     }
 }
