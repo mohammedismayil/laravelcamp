@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         // echo("hello");
         $users = Users::latest()->get();
-       dd($users);
+    //    dd($users);
         return response()->json($users, 201);
     }
 }
