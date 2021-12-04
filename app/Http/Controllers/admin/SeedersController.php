@@ -13,9 +13,9 @@ class SeedersController extends Controller
     public function createSeeder()
     {
 
-        dd(request('Seeder'));
+        // dd(request('Seeder'));
 
-        // $seeder = request('Seeder');
+        $seeder = request('Seeder');
         if ($seeder = "articles") {
             Articles::factory()
                 ->count(request('count'))
