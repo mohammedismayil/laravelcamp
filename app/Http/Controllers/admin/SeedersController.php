@@ -15,7 +15,7 @@ class SeedersController extends Controller
 
         dd(request('Seeder'));
 
-        $seeder = request('Seeder');
+        // $seeder = request('Seeder');
         if ($seeder = "articles") {
             Articles::factory()
                 ->count(request('count'))
