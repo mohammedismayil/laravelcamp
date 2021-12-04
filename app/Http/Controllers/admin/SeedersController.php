@@ -13,7 +13,7 @@ class SeedersController extends Controller
     public function createSeeder()
     {
 
-        dd(request);
+        dd(request('Seeder'));
 
         $seeder = request('Seeder');
         if ($seeder = "articles") {
