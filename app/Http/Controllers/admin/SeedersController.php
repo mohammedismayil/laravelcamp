@@ -13,6 +13,8 @@ class SeedersController extends Controller
     public function createSeeder()
     {
 
+        dd(request);
+
         $seeder = request('Seeder');
         if ($seeder = "articles") {
             Articles::factory()
