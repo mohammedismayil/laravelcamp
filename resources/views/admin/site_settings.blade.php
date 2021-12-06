@@ -3,7 +3,7 @@
 @section('content')
 @component('layouts.toast.success')
 
-
+//checking deployment
 @endcomponent
     <form method="POST" action="/admin/editsitesettings">
         @csrf
