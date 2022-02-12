@@ -33,7 +33,7 @@ return view('Articles.show',[
     }
 
     public function createArticle(){
-        dd(request()->all());
+        // dd(request()->all());
 
 request()->validate([
 'title' => 'required',
