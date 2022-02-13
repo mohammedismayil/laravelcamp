@@ -8,7 +8,7 @@ use App\Models\Users;
 
 class UserController extends Controller
 {
-    //
+    
 
 
     // registering the User
